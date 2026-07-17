@@ -1,101 +1,17 @@
-[gd_scene load_steps=19 format=3 uid="uid://21jn713xuxg"]
+[gd_scene load_steps=5 format=3 uid="uid://21jn713xuxg"]
 
-[ext_resource type="Script" uid="uid://dy68h1c6utrxn" path="res://sonic.gd" id="1_7sc4i"]
-[ext_resource type="Texture2D" uid="uid://bd50454nlotql" path="res://Assets/Dead.png" id="2_80cx4"]
-[ext_resource type="Texture2D" uid="uid://bpimck2e1y8bd" path="res://Assets/Jump1.png" id="3_e8heu"]
-[ext_resource type="Texture2D" uid="uid://dn5enoxmmhp3a" path="res://Assets/Jump2.png" id="4_rvswv"]
-[ext_resource type="Texture2D" uid="uid://df6ehua0ed26x" path="res://Assets/Jump3.png" id="5_boyg6"]
-[ext_resource type="Texture2D" uid="uid://bc3andhcbxcgf" path="res://Assets/Jump4.png" id="6_e36ub"]
-[ext_resource type="Texture2D" uid="uid://bhnlf14w0b6w" path="res://Assets/Sonic1.png" id="7_hb5m1"]
-[ext_resource type="Texture2D" uid="uid://bi8eiovxg2ikn" path="res://Assets/Sonic2.png" id="8_x5p1p"]
-[ext_resource type="Texture2D" uid="uid://duxwecprfdpf" path="res://Assets/Sonic3.png" id="9_qhcbd"]
-[ext_resource type="Texture2D" uid="uid://f0bryvqjo86d" path="res://Assets/Sonic4.png" id="10_f1jbl"]
-[ext_resource type="Texture2D" uid="uid://b8c0t0j2jkoax" path="res://Assets/Sonic5.png" id="11_vaj68"]
-[ext_resource type="Texture2D" uid="uid://dlx4p2q6j2s8u" path="res://Assets/Sonic6.png" id="12_i2p71"]
-[ext_resource type="Texture2D" uid="uid://ctdg6mqeiqwej" path="res://Assets/Sonic7.png" id="13_xa8c5"]
-[ext_resource type="Texture2D" uid="uid://bmqo0h8y36ncx" path="res://Assets/Sonic8.png" id="14_5b14r"]
+[ext_resource type="PackedScene" uid="uid://bfvjo3cfb7j38" path="res://sonic.tscn" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://bty1o6yk6b0d6" path="res://Assets/sonic-3d-blast-green-grove-zone-act-1-genesis-map.png" id="15_7sc4i"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36jdj"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_xfvwf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_80cx4")
-}],
-"loop": true,
-"name": &"Dead",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_e8heu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_rvswv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_boyg6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_e36ub")
-}],
-"loop": true,
-"name": &"Jump",
-"speed": 16.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_hb5m1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_x5p1p")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_qhcbd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_f1jbl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_vaj68")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_i2p71")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_xa8c5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_5b14r")
-}],
-"loop": true,
-"name": &"Run",
-"speed": 16.0
-}]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
+size = Vector2(165.43222, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7sc4i"]
-radius = 34.132095
+radius = 18.248287
 
 [node name="Game" type="Node2D"]
 
-[node name="Sonic" type="CharacterBody2D" parent="."]
-script = ExtResource("1_7sc4i")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sonic"]
-shape = SubResource("CapsuleShape2D_36jdj")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sonic"]
-unique_name_in_owner = true
-position = Vector2(1, -7)
-sprite_frames = SubResource("SpriteFrames_xfvwf")
-animation = &"Run"
-
-[node name="Camera2D" type="Camera2D" parent="Sonic"]
-position = Vector2(0, -53)
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
+[node name="Sonic" parent="." instance=ExtResource("1_e2o6t")]
 
 [node name="Level" type="Sprite2D" parent="."]
 z_index = -9
@@ -110,7 +26,7 @@ polygon = PackedVector2Array(-322.5, 19, -16.5, 170, 604.5, -205, 852.5, -55, 10
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="CantGo"]
 position = Vector2(0.5, 0)
-polygon = PackedVector2Array(-308.5, 21, 202.5, -274, 467.5, -442, 599.5, -373, 617.5, -366, 724.5, -460, 855.5, -609, 722.5, -546, 472.5, -663, 358.5, -599, 101.5, -738, 71.5, -430, 161.5, -370, 82.5, -322)
+polygon = PackedVector2Array(170, -254, 202.5, -274, 467.5, -442, 599.5, -373, 617.5, -366, 724.5, -460, 855.5, -609, 722.5, -546, 472.5, -663, 358.5, -599, 101.5, -738, 71.5, -430, 161.5, -370)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="CantGo"]
 polygon = PackedVector2Array(1260.5, -674, 831.5, -939, 605.5, -1128, 500.5, -1197, 635.5, -1282, 304.5, -1459, 255.5, -1412, 154.5, -1454, 105.5, -1424, 118.5, -1366, 116.5, -1337, 90.5, -1321, 61.5, -1345, 31.5, -1328, -105.5, -1388, 33.5, -1632, 1044.5, -1315, 1257.5, -758)
@@ -125,7 +41,37 @@ polygon = PackedVector2Array(-1512.5, -1935, -1411.5, -1881, -1369.5, -1910, -13
 polygon = PackedVector2Array(-478.5, -1353, -605.5, -1287, -728.5, -1169, -810.5, -1100, -862.5, -1032, -999.5, -1098, -756.5, -1341, -879.5, -1280, -1147.5, -1412, -940.5, -1518, -1154.5, -1614, -1378.5, -1527, -1817.5, -1751, -1859.5, -1742, -1751.5, -1631, -1737.5, -1567, -1848.5, -1529, -2020.5, -1551, -2336.5, -1662, -2560.5, -1518, -2456.5, -1518, -2312.5, -1532, -2171.5, -1475, -2076.5, -1388, -2058.5, -1317, -2239.5, -1204, -2157.5, -1152, -2015.5, -1204, -1890.5, -1162, -1602.5, -1301, -1565.5, -1258, -1576.5, -1206, -1923.5, -1037, -1713.5, -952, -1500.5, -1025, -1346.5, -1106, -1310.5, -1139, -1310.5, -1214, -1239.5, -1261, -1277.5, -1222, -1042.5, -1113, -1089.5, -1068, -1018.5, -1023, -864.5, -946)
 
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="CantGo"]
-polygon = PackedVector2Array(-1581.5, -1851, -1633.5, -1797, -1772.5, -1877, -1965.5, -1772, -1951.5, -1690, -1857.5, -1618, -1900.5, -1586, -2128.5, -1682, -2241.5, -1717, -2385.5, -1725, -2499.5, -1674, -2676.5, -1561, -2688.5, -1503, -2680.5, -1460, -2602.5, -1423, -2467.5, -1425, -2350.5, -1452, -2206.5, -1366, -2195.5, -1351, -2493.5, -1167, -2489.5, -1140, -2233.5, -1019, -2237.5, -250, -1842.5, -22, -1418.5, -256, -1410.5, -41, -1529.5, 17, -1693.5, -14, -1837.5, 64, -2334.5, -201, -2318.5, -1000, -2539.5, -1092, -2720.5, -1417, -2753.5, -1575, -1954.5, -1988)
+polygon = PackedVector2Array(-1581.5, -1851, -1633.5, -1797, -1772.5, -1877, -1965.5, -1772, -1951.5, -1690, -1857.5, -1618, -1900.5, -1586, -2128.5, -1682, -2241.5, -1717, -2385.5, -1725, -2499.5, -1674, -2676.5, -1561, -2688.5, -1503, -2680.5, -1460, -2602.5, -1423, -2467.5, -1425, -2350.5, -1452, -2206.5, -1366, -2195.5, -1351, -2493.5, -1167, -2489.5, -1140, -2233.5, -1019, -2237.5, -250, -1828.5, -26, -1833.5, 65, -2334.5, -201, -2318.5, -1000, -2539.5, -1092, -2720.5, -1417, -2753.5, -1575, -1954.5, -1988)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="CantGo"]
+polygon = PackedVector2Array(-1928.5, -1011, -1726.5, -916, -1721.5, -679, -1924.5, -571)
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="CantGo"]
+polygon = PackedVector2Array(-1933.5, -540, -1714.5, -650, -1472.5, -509, -1667.5, -410)
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="CantGo"]
+polygon = PackedVector2Array(-1416.5, -249, -1599.5, -373, -1384.5, -483, -1181.5, -380, -1033.5, -451, -1211.5, -552, -1097.5, -597, -1094.5, -804, -869.5, -915, -627.5, -369, -804.5, -281, -948.5, -278, -1074.5, -197, -1405.5, -33)
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="CantGo"]
+polygon = PackedVector2Array(-1829.5, 68, -1716.5, 137, -1406.5, 134, -1157.5, 4, -1221.5, -47, -1005.5, -158, -925.5, -122, -694.5, -240, -608.5, -214, -201.5, -410, -110.5, -412, 74.5, -315, 93.5, -216, -308.5, 25, -18.5, 171, -512.5, 250, -1735.5, 281, -2030.5, 111)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CantGo"]
+position = Vector2(127.01947, -245.32977)
+rotation = 2.6619103
+shape = SubResource("RectangleShape2D_e2o6t")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CantGo"]
+position = Vector2(-1759.5, -61.00003)
+rotation = 2.6619103
+shape = SubResource("RectangleShape2D_e2o6t")
+one_way_collision = true
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="CantGo"]
+polygon = PackedVector2Array(-1692.5, -105, -1694.5, -135, -1417.5, -251, -1412.5, -36, -1541.5, 19, -1672.5, -6, -1693.5, -19)
+
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="CantGo"]
+polygon = PackedVector2Array(-632.5, -380, -556.5, -431, -447.5, -397, -291.5, -485, -235.5, -510, -92.5, -509, 72.5, -428, 103.5, -729, -624.5, -1169, -864.5, -942, -848.5044, -872.5548, -1052.5, -776)
 
 [node name="Teleport" type="Area2D" parent="."]
 
@@ -134,4 +80,28 @@ position = Vector2(180, -1444)
 shape = SubResource("CircleShape2D_7sc4i")
 debug_color = Color(0.69803923, 1, 0, 1)
 
+[node name="Teleport2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport2"]
+position = Vector2(-1477, -1927)
+shape = SubResource("CircleShape2D_7sc4i")
+debug_color = Color(0.69803923, 1, 0, 1)
+
+[node name="LoopTeleportExit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoopTeleportExit"]
+position = Vector2(-493, -382)
+shape = SubResource("CircleShape2D_7sc4i")
+debug_color = Color(0.96149284, 0.914676, 0, 1)
+
+[node name="LoopTeleportEnter" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoopTeleportEnter"]
+position = Vector2(-598, -389)
+shape = SubResource("CircleShape2D_7sc4i")
+debug_color = Color(0.53970647, 0.9933714, 0.8140005, 1)
+
 [connection signal="body_entered" from="Teleport" to="Sonic" method="_on_teleport_body_entered"]
+[connection signal="body_entered" from="Teleport2" to="Sonic" method="_on_teleport_2_body_entered"]
+[connection signal="body_entered" from="LoopTeleportExit" to="Sonic" method="_on_loop_teleport_exit_body_entered"]
+[connection signal="body_entered" from="LoopTeleportEnter" to="Sonic" method="_on_loop_teleport_enter_body_entered"]
