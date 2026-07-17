@@ -1,6 +1,6 @@
 This is basically just to walk around the map of sonic 3d blast. Note that none of the items or rings work, due to time limits. I was going to make the full thing, but onekey is ending today so i didn't have much time to do that :(
 
-You can walk around by clicking with your mouse, so thats kinda onekey? he'll also match somewhat of your direction, and has an idle animation, which i got to work by having your mouse check what quadrant you're in.
+You can walk around by clicking with your mouse, so thats kinda onekey? he'll also match somewhat of your direction, which i got to work by having your mouse check what quadrant you're in.
 
 It's moreover made to test collision in fake 3d, so i focused on adding things like cliffs and stuff to make it seem better.
 
