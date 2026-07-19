@@ -9,7 +9,7 @@ var target_position = Vector2()
 
 func _physics_process(delta: float) -> void:
 	
-	if InputEventMouseMotion:
+	if Input.is_action_pressed("LeftClick"):
 			click_position = get_global_mouse_position()
 	
 	if position.distance_to(click_position) >15:

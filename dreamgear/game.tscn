@@ -90,7 +90,7 @@ debug_color = Color(0.69803923, 1, 0, 1)
 [node name="LoopTeleportExit" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LoopTeleportExit"]
-position = Vector2(-493, -382)
+position = Vector2(-498, -386)
 shape = SubResource("CircleShape2D_7sc4i")
 debug_color = Color(0.96149284, 0.914676, 0, 1)
 

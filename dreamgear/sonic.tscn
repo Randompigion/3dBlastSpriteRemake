@@ -316,7 +316,7 @@ position = Vector2(-1, -1)
 scale = Vector2(2.357143, 2.357143)
 sprite_frames = SubResource("SpriteFrames_65ocr")
 animation = &"Idle"
-frame_progress = 0.4530974
+frame_progress = 0.6442425
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -53)
